@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+hooks:
+  ApplicationStop:
+    - location: Scripts/ApplicationStop.sh
+      runas: root
+  AfterInstall:
+    - location: Scripts/catincorrectfile.sh
+      timeout: 180
+      runas: root
