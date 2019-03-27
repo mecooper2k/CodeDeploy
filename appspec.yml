@@ -4,7 +4,12 @@ hooks:
   ApplicationStop:
     - location: Scripts/ApplicationStop.sh
       runas: root
+    - location: deregister_from_elb.sh
+      runas: root
   AfterInstall:
     - location: Scripts/catincorrectfile.sh
       timeout: 180
+      runas: root
+  ApplicationStart:
+    - location: register_with_elb.sh
       runas: root
